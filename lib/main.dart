@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/components.dart';
+import 'theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: MaterialTheme.lightScheme(),
+        useMaterial3: true,
+      ),
+      darkTheme: ThemeData(
+        colorScheme: MaterialTheme.darkScheme(),
+        useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -72,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 leading: const Icon(Icons.pages),
                 title: const Text('Componentes'),
                 onTap: () {
-                  Navigator.pop(context); // fecha o drawer
+                  Navigator.pop(context);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (_) => const ComponentsPage()),
